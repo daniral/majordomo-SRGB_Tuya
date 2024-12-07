@@ -7,17 +7,17 @@
 
 **Надо привязать свойства:**
 
-- **brightnessWork - brightness лампочки.**
-  - Добавить Путь (write): zigbee2mqtt/Название устройства/set/brightness
-- **colorWork - color лампочки.**
-  - Добавить Путь (write): zigbee2mqtt/Название устройства/set/color
-- **status - state лампочки.**
+- **brightnessWork - brightness лампочки.**  
+  - Добавить Путь (write): zigbee2mqtt/Название устройства/set/brightness  
+- **colorWork - color лампочки.**  
+  - Добавить Путь (write): zigbee2mqtt/Название устройства/set/color  
+- **status - state лампочки.**  
   - В статус не добовляем путь(write) так как он нужен только для обратной связи
-    что бы знать включена или нет лапочка для сцен или кнопок.
-- **Установить минимальные и максимальные рабочие уровни для яркости:**
+    что бы знать включена или нет лапочка для сцен или кнопок.  
+- **Установить минимальные и максимальные рабочие уровни для яркости:**  
   - Например для лампочек Xiaomi ZigBee это:  
-    - brightnessWorkMax - 254
-    - brightnessWorkMin - 0
+    - brightnessWorkMax - 254  
+    - brightnessWorkMin - 0  
 
 ### **ОБЫЧНЫЙ РЕЖИМ:**
 
