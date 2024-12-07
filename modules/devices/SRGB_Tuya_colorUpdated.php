@@ -1,5 +1,12 @@
 <?php
 
+/*
+Запускается при смене свойства color.
+Проверяет если есть в начале # то отрезает и пишет в color без него.
+Сохраняет значение в colorSaved.
+Формирует json и пишет в colorWork.
+*/
+
 $colorNew = strtolower($params['NEW_VALUE']);
 $colorOld = strtolower($params['OLD_VALUE']);
 $brightnessSaved = $this->getProperty('brightnessSaved');

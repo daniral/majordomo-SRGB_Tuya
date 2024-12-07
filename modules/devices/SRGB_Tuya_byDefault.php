@@ -2,8 +2,6 @@
 
 /*
 Установить свойства по умолчанию.
-Установки для AqaraBulbZigBee.
-Для других надо менять
 */
 
 $this->setProperty('addTimeSunrise', '00:00');
