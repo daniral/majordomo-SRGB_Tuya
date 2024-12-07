@@ -142,7 +142,7 @@ $nightBegin;
 
 if (!$dayNight) {
   $this->setProperty('flag', 1);
-  $this->setProperty('status', 1);
+  //$this->setProperty('status', 1);
   if ($color) {
     //$this->setProperty('color', $color);
     $this->callMethod('setColor', array('color' => $color));
@@ -151,7 +151,7 @@ if (!$dayNight) {
     $this->callMethod('setColor', array('color' => $colorSaved));
   } else {
     //$this->setProperty('color', '#FFFFFF');
-    $this->callMethod('setColor', array('color' => 'FFFFFF'));
+    $this->callMethod('setColor', array('color' => '#FFFFFF'));
   }
 
   if ($brightness) {
@@ -166,8 +166,8 @@ if (!$dayNight) {
 if ($dayNight && !$this->getProperty('flag')) {
 
   if ($this->getProperty('bySunTime') && $this->getProperty('sunriseTime') != '' && $this->getProperty('sunsetTime') != '') {
-    $dayBegin = edit_time($this->getProperty('sunriseTime'), $this->getProperty('addTimeSunrise'), $this->getProperty('signSunrise'));
-    $nightBegin = edit_time($this->getProperty('sunsetTime'), $this->getProperty('addTimeSunset'), $this->getProperty('signSunset'));
+    $dayBegin = $this->edit_time($this->getProperty('sunriseTime'), $this->getProperty('addTimeSunrise'), $this->getProperty('signSunrise'));
+    $nightBegin = $this->edit_time($this->getProperty('sunsetTime'), $this->getProperty('addTimeSunset'), $this->getProperty('signSunset'));
   } else if (!$this->getProperty('bySensor')) {
     $dayBegin = $this->getProperty('dayBegin');
     $nightBegin = $this->getProperty('nightBegin');
