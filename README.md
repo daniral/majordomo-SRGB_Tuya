@@ -29,6 +29,8 @@
 - callMethod('имя объекта.turnOn', array('brightness'=> 1<-->100, 'color'=> '#------');  
 - callMethod('имя объекта.turnOn', array('brightness'=> 1<-->100));  
 - callMethod('имя объекта.turnOn', array('color'=> '#------');  
+  - Можно отправить в свойство color пресеты цветаЖ
+    - callMethod('имя объекта.turnOn', array('color'=> 'red','green','blue','white');  
 
 **Устанавливается flag=1. Стопер который не дает запускаться методу AutoOFF.**
 
@@ -71,9 +73,15 @@
 ## **Методы:**
 
 - **brightnessDown**  
-  - Уменьшить яркость.(array("value"=>1-50)). Без  параметров -10.
+  - Уменьшить яркость.
+    - callMethod('имя объекта.brightnessDown', array("value"=>1-50)). Без  параметров -10.
 - **brightnessUp**  
-  - Увеличить яркость.(array("value"=>1-50)). Без  параметров 10.
+  - Увеличить яркость.
+    - callMethod('имя объекта.brightnessDown', array("value"=>1-50)). Без  параметров 10.
+- **setColor**  
+  - Установить цвет.
+    - callMethod('имя объекта.setColor', array('color'=> 'red','green','blue','white'));
+    - callMethod('имя объекта.setColor', array('color'=> '#------'));
 - **byDefault** 
   - Установит параметры по дефолту. Это если что-то пошло не так.  
     (При первом запуске метода turnOn тоже все выставится по дефолту.)
