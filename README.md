@@ -29,7 +29,7 @@
 - callMethod('имя объекта.turnOn', array('brightness'=> 1<-->100, 'color'=> '#------');  
 - callMethod('имя объекта.turnOn', array('brightness'=> 1<-->100));  
 - callMethod('имя объекта.turnOn', array('color'=> '#------');  
-  - Можно отправить в свойство color пресеты цветаЖ  
+  - Можно отправить в свойство color пресеты цвета:  
     - callMethod('имя объекта.turnOn', array('color'=> 'red','green','blue','white');  
 
 **Устанавливается flag=1. Стопер который не дает запускаться методу AutoOFF.**  
