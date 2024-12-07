@@ -136,11 +136,14 @@ if (!$dayNight) {
   $this->setProperty('flag', 1);
   $this->setProperty('status', 1);
   if ($color) {
-    $this->setProperty('color', $color);
+    //$this->setProperty('color', $color);
+    $this->callMethod('setColor', array('color' => $color));
   } else if ($colorSaved) {
-    $this->setProperty('color', $colorSaved);
+    //$this->setProperty('color', $colorSaved);
+    $this->callMethod('setColor', array('color' => $colorSaved));
   } else {
-    $this->setProperty('color', '#FFFFFF');
+    //$this->setProperty('color', '#FFFFFF');
+    $this->callMethod('setColor', array('color' => 'FFFFFF'));
   }
 
   if ($brightness) {
@@ -163,14 +166,23 @@ if ($dayNight && !$this->getProperty('flag')) {
   }
   if ($this->getProperty('autoOnOff')) {
     if (($this->getProperty('workInDai') == '2' || $this->getProperty('workInDai') == '0') && !$this->getProperty('bySensor') && timeBetween($nightBegin, $dayBegin)) {
+
       $this->setProperty('brightness', $brightness ? $brightness : $this->getProperty('nightBrightness'));
-      $this->setProperty('color', $color ? $color : $this->getProperty('nightColor'));
+      $this->callMethod('setColor', array('color' => $color ? $color : $this->getProperty('nightColor')));
+
+      //$this->setProperty('color', $color ? $color : $this->getProperty('nightColor'));
     } else if (($this->getProperty('workInDai') == '1' || $this->getProperty('workInDai') == '0') && !$this->getProperty('bySensor') && timeBetween($dayBegin, $nightBegin)) {
+
       $this->setProperty('brightness', $brightness ? $brightness : $this->getProperty('dayBrightness'));
-      $this->setProperty('color', $color ? $color : $this->getProperty('dayColor'));
+      $this->callMethod('setColor', array('color' => $color ? $color : $this->getProperty('dayColor')));
+
+      //$this->setProperty('color', $color ? $color : $this->getProperty('dayColor'));
     } else if (($this->getProperty('bySensor') && $this->getProperty('illuminance') <= $this->getProperty('illuminanceMax')) || $this->getProperty('illuminanceFlag')) {
+
       $this->setProperty('brightness', $brightness ? $brightness : $this->getProperty('nightBrightness'));
-      $this->setProperty('color', $color ? $color : $this->getProperty('nightColor'));
+      $this->callMethod('setColor', array('color' => $color ? $color : $this->getProperty('nightColor')));
+
+      //$this->setProperty('color', $color ? $color : $this->getProperty('nightColor'));
       $this->setProperty('illuminanceFlag', 1);
     }
     $this->callMethod('AutoOFF');

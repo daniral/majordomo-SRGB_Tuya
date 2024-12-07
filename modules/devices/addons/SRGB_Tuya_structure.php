@@ -62,5 +62,6 @@ $this->device_types['rgb'] = array(
 		'turnOff' => array('DESCRIPTION' => 'Выключить', '_CONFIG_SHOW' => 1),
 		'brightnessUpdated' => array('DESCRIPTION' => 'Запускается при смене яркости'),
 		'colorUpdated' => array('DESCRIPTION' => 'Запускается при смене цвета'),
+		'setColor' => array('DESCRIPTION' => 'Установиьт цвет(HEX).'),
 	),
 );
