@@ -27,7 +27,3 @@ if ($this->getProperty('flag')) {
 
 $colorWork = '{"hex":"#' . $colorNew . '"}';
 $this->setProperty('colorWork', $colorWork);
-
-//if (!$this->getProperty('status')) {
-//	$this->callMethod('turnOn');
-//}
