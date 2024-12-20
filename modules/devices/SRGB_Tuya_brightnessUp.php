@@ -1,12 +1,12 @@
 <?php
 /*
-Увеличить яркость.(array('value'=>1-50)). Без  параметров +10.
+Увеличить яркость.(array('value'=>1--100)). Без  параметров +10.
 */
 
 $brightness = $this->getProperty('brightness');
 $inc;
 
-if (isset($params[value]) && $params[value] > 0 && $params[value] <= 50) {
+if (isset($params[value]) && $params[value] > 0 && $params[value] <= 100) {
   $inc = $params[value];
   if ($inc < 0) {
     $inc = $inc * -1;
