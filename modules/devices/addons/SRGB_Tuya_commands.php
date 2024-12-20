@@ -26,7 +26,7 @@ if ($device_type == 'SRGB_Tuya') {
   if(preg_match('/(?:\s)(\d{1,2}|100)(?:%|\s|$)/uis', $command, $matches)) {
    $opposite_code .= "callMethod('$linked_object.turnOn', array('brightness' => $matches[1]));";
    $processed = 1;
-   $reply_confirm = 1;
+   //$reply_confirm = 1;
   }
  }
 }
