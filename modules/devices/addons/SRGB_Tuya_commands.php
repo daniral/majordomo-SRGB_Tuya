@@ -29,11 +29,4 @@ if ($device_type == 'SRGB_Tuya') {
    $reply_confirm = 1;
   }
  }
- elseif (preg_match('/' . LANG_SRGB_Tuya_PATTERN_COLOR . '/uis', $command)) {
-  if(preg_match('/(?:\s)(\d{1,2}|100)(?:%|\s|$)/uis', $command, $matches)) {
-   $run_code .= "setGlobal('$linked_object.color', $matches[1]);";
-   $processed = 1;
-   $reply_confirm = 1;
-  }
- }
 }
