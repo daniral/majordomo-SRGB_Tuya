@@ -1,5 +1,4 @@
 <?php
-
 /*
 Запускается при смене свойства color.
 Проверяет если есть в начале # то отрезает и пишет в color без него.
@@ -8,7 +7,7 @@
 */
 
 $colorNew = strtolower($params['NEW_VALUE']);
-$colorOld = strtolower($params['OLD_VALUE']);
+$colorOld = $this->getProperty('color');
 $brightnessSaved = $this->getProperty('brightnessSaved');
 
 

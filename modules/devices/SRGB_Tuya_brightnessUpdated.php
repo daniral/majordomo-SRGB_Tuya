@@ -1,14 +1,11 @@
 <?php
-
 /*
-
 Переводит рабочие еденицы яркости (brightnessWorkMin <--> brightnessWorkMax) в проценты (0 <--> 100)
 Сохраняет предыдущее значение уровня в brightnessSaved
-
 */
 
 $brightnessLevelNew = $params['NEW_VALUE'];
-$brightnessLevelOld = $params['OLD_VALUE'];
+$brightnessLevelOld = $this->getProperty('brightness');
 $brightnessWorkMin = $this->getProperty('brightnessWorkMin');
 $brightnessWorkMax = $this->getProperty('brightnessWorkMax');
 

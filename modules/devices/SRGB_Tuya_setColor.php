@@ -1,12 +1,13 @@
 <?php
 /*
-Установиь цвет в (array("сщдщк"=> '#------'))
+Установиь цвет в (array("color"=> '#------'))
 вместо '#------' можно отправлять пресеты
     'red'
     'green'
     'blue'
     'white'
 */
+
 if (!$params['color']) return;
 
 $color = strtolower($params['color']);
