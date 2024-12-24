@@ -132,25 +132,21 @@ if (isset($params['brightness']) &&  $params['brightness'] == 0) {
   return;
 }
 
-$color = isset($params['color']) ? $params['color'] : 0;
 $brightness = isset($params['brightness']) && $params['brightness'] > 0 && $params['brightness'] <= 100 ? $params['brightness'] : 0;
-$autoMode = isset($params['autoMode']) && $params['autoMode'] == 1 ? 1 : 0;
 $brightnessSaved = $this->getProperty('brightnessSaved');
+$color = isset($params['color']) ? $params['color'] : 0;
 $colorSaved = $this->getProperty('colorSaved');
+$autoMode = isset($params['autoMode']) && $params['autoMode'] == 1 ? 1 : 0;
 
 $dayBegin;
 $nightBegin;
 
 if (!$autoMode) {
-  $this->setProperty('flag', 1);
   if ($brightness) {
-    //$this->setProperty('brightness', $brightness);
     $this->callMethod('setBrightness', array('brightness' => $brightness));
   } else if ($brightnessSaved) {
-    //$this->setProperty('brightness', $brightnessSaved);
     $this->callMethod('setBrightness', array('brightness' => $brightnessSaved));
   } else {
-    //$this->setProperty('brightness', 100);
     $this->callMethod('setBrightness', array('brightness' => 100));
   }
   if ($color) {
@@ -173,17 +169,14 @@ if ($autoMode && !$this->getProperty('flag')) {
   }
   if ($this->getProperty('autoOnOff')) {
     if (($this->getProperty('workInDai') == '2' || $this->getProperty('workInDai') == '0') && !$this->getProperty('bySensor') && timeBetween($nightBegin, $dayBegin)) {
-      //$this->setProperty('brightness', $brightness ? $brightness : $this->getProperty('nightBrightness'));
-      $this->callMethod('setBrightness', array('brightness' =>$brightness ? $brightness : $this->getProperty('nightBrightness')));
-      $this->callMethod('setColor', array('color' => $color ? $color : $this->getProperty('nightColor')));
+      $this->setProperty('brightness', $brightness ? $brightness : $this->getProperty('nightBrightness'));
+      $this->setProperty('color', $color ? $color : $this->getProperty('nightColor'));
     } else if (($this->getProperty('workInDai') == '1' || $this->getProperty('workInDai') == '0') && !$this->getProperty('bySensor') && timeBetween($dayBegin, $nightBegin)) {
-      //$this->setProperty('brightness', $brightness ? $brightness : $this->getProperty('dayBrightness'));
-      $this->callMethod('setBrightness', array('brightness' =>$brightness ? $brightness : $this->getProperty('dayBrightness')));
-      $this->callMethod('setColor', array('color' => $color ? $color : $this->getProperty('dayColor')));
+      $this->setProperty('brightness', $brightness ? $brightness : $this->getProperty('dayBrightness'));
+      $this->setProperty('color', $color ? $color : $this->getProperty('dayColor'));
     } else if (($this->getProperty('bySensor') && $this->getProperty('illuminance') <= $this->getProperty('illuminanceMax')) || $this->getProperty('illuminanceFlag')) {
-      //$this->setProperty('brightness', $brightness ? $brightness : $this->getProperty('nightBrightness'));
-      $this->callMethod('setBrightness', array('brightness' =>$brightness ? $brightness : $this->getProperty('nightBrightness')));
-      $this->callMethod('setColor', array('color' => $color ? $color : $this->getProperty('nightColor')));
+      $this->setProperty('brightness', $brightness ? $brightness : $this->getProperty('nightBrightness'));
+      $this->setProperty('color', $color ? $color : $this->getProperty('nightColor'));
       $this->setProperty('illuminanceFlag', 1);
     }
     $this->callMethod('AutoOFF');

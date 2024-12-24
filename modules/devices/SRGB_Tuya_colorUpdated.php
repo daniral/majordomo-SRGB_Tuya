@@ -6,23 +6,33 @@
 Формирует json и пишет в colorWork.
 */
 
-$colorNew = strtolower($params['NEW_VALUE']);
-$colorOld = $this->getProperty('color');
-$brightnessSaved = $this->getProperty('brightnessSaved');
+$color = strtolower($params['NEW_VALUE']);
+$colorOld = strtolower($params['OLD_VALUE']);
 
 
-if (strncmp($colorNew, '#', 1) == 0) {
-    $colorNew = preg_replace('/^#/', '', $colorNew);
-    $this->setProperty('color', $colorNew);
+if (strncmp($color, '#', 1) == 0) {
+    $color = preg_replace('/^#/', '', $color);
+    $this->setProperty('color', $color);
 }
 
 $colorOld = preg_replace('/^#/', '', $colorOld);
 
-if ($colorNew == $colorOld) return;
+$transform = array(
+    'red' => 'ff0000',
+    'green' => '00ff00',
+    'blue' => '0000ff',
+    'white' => 'ffffff'
+);
 
-if ($this->getProperty('flag')) {
-	$this->setProperty('colorSaved', $colorNew);
+if (isset($transform[$color])) {
+    $color = $transform[$color];
 }
 
-$colorWork = '{"hex":"#' . $colorNew . '"}';
+if ($color == $colorOld) return;
+
+if ($this->getProperty('flag')) {
+	$this->setProperty('colorSaved', $color);
+}
+
+$colorWork = '{"hex":"#' . $color . '"}';
 $this->setProperty('colorWork', $colorWork);

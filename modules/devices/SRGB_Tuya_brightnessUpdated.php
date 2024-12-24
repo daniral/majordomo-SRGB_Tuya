@@ -5,7 +5,7 @@
 */
 
 $brightnessLevelNew = $params['NEW_VALUE'];
-$brightnessLevelOld = $this->getProperty('brightness');
+$brightnessLevelOld = $params['OLD_VALUE'];
 $brightnessWorkMin = $this->getProperty('brightnessWorkMin');
 $brightnessWorkMax = $this->getProperty('brightnessWorkMax');
 
@@ -14,6 +14,13 @@ if ($brightnessLevelNew == $brightnessLevelOld || $brightnessLevelNew < 0 || $br
 
 if ($brightnessWorkMin != $brightnessWorkMax) {
     $brightLevelWork = round($brightnessWorkMin + round(($brightnessWorkMax - $brightnessWorkMin) * $brightnessLevelNew / 100));
+    if($brightLevelWork > 0) {
+		$this->setProperty('status', 1);
+	}else {
+        $this->callMethod('turnOff');
+        //$this->setProperty('flag', 0);
+        //$this->setProperty('illuminanceFlag', 0);
+    }
     $this->setProperty('brightnessWork', $brightLevelWork);
     if ($brightnessLevelNew > 0 && $this->getProperty('flag')) {
         $this->setProperty('brightnessSaved', $brightnessLevelNew);

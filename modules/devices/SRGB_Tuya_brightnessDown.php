@@ -6,13 +6,10 @@
 $inc;
 $brightness = $this->getProperty('brightness');
 
-if (isset($params[value]) && $params[value] > 0 && $params[value] <= 100) {
-  $inc = $params[value];
-  if ($inc > 0) {
-    $inc = $inc * -1;
-  }
+if (isset($params['value']) && $params['value'] > 0 && $params['value'] <= 100) {
+  $inc = $params['value'] * -1;
 } else {
-  $inc = '-10';
+  $inc = -10;
 }
 
 $brightness += $inc;
@@ -25,4 +22,4 @@ if ($brightness == $this->getProperty('brightness')) {
   return;
 }
 
-$this->callMethod('turnOn', array('brightness' => $brightness));
+$this->callMethod('setBrightness', array('value' => $brightness));
