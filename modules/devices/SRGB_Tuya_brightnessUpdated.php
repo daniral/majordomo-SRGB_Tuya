@@ -18,8 +18,6 @@ if ($brightnessWorkMin != $brightnessWorkMax) {
 		$this->setProperty('status', 1);
 	}else {
         $this->callMethod('turnOff');
-        //$this->setProperty('flag', 0);
-        //$this->setProperty('illuminanceFlag', 0);
     }
     $this->setProperty('brightnessWork', $brightLevelWork);
     if ($brightnessLevelNew > 0 && $this->getProperty('flag')) {

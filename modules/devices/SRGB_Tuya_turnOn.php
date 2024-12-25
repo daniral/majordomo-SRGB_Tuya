@@ -9,7 +9,7 @@
 - Автовыключение через заданное времени.  
 - Авто режим для Дня, Ночи или в течении всего деня.  
  
-**Привязка свойств:**  
+ **Привязка свойств:**  
 
 - **brightnessWork - brightness лампочки.**  
   - Добавить Путь (write): zigbee2mqtt/Название устройства/set/brightness  
@@ -100,10 +100,10 @@
 
 */
 
-if ($this->getProperty('dayBrightness') == '') $this->setProperty('dayBrightness', '100');
-if ($this->getProperty('dayColor') == '') $this->setProperty('dayColor', '#FFFFFF');
+if ($this->getProperty('dayBrightness') == '') $this->setProperty('dayBrightness', '50');
+if ($this->getProperty('dayColor') == '') $this->setProperty('dayColor', 'FFFFFF');
 if ($this->getProperty('nightBrightness') == '') $this->setProperty('nightBrightness', '10');
-if ($this->getProperty('nightColor') == '') $this->setProperty('nightColor', '#FFD700');
+if ($this->getProperty('nightColor') == '') $this->setProperty('nightColor', 'FFD700');
 if ($this->getProperty('brightnessWorkMin') == '') $this->setProperty('brightnessWorkMin', '0');
 if ($this->getProperty('brightnessWorkMax') == '') $this->setProperty('brightnessWorkMax', '254');
 if ($this->getProperty('timerOFF') == '') $this->setProperty('timerOFF', '120');
@@ -127,7 +127,7 @@ if ($this->getProperty('sunriseTime') == '') $this->setProperty('sunriseTime', $
 if ($this->getProperty('sunsetTime') == '') $this->setProperty('sunsetTime', $this->getProperty('nightBegin'));
 
 
-if (isset($params['brightness']) &&  $params['brightness'] == 0) {
+if (isset($params['brightness']) &&  $params['brightness'] <= 0) {
   $this->callMethod('turnOff');
   return;
 }
@@ -143,18 +143,18 @@ $nightBegin;
 
 if (!$autoMode) {
   if ($brightness) {
-    $this->callMethod('setBrightness', array('brightness' => $brightness));
+    $this->callMethod('setBrightness', array('value' => $brightness));
   } else if ($brightnessSaved) {
-    $this->callMethod('setBrightness', array('brightness' => $brightnessSaved));
+    $this->callMethod('setBrightness', array('value' => $brightnessSaved));
   } else {
-    $this->callMethod('setBrightness', array('brightness' => 100));
+    $this->callMethod('setBrightness', array('value' => 100));
   }
   if ($color) {
-    $this->callMethod('setColor', array('color' => $color));
+    $this->callMethod('setColor', array('value' => $color));
   } else if ($colorSaved) {
-    $this->callMethod('setColor', array('color' => $colorSaved));
+    $this->callMethod('setColor', array('value' => $colorSaved));
   } else {
-    $this->callMethod('setColor', array('color' => '#FFFFFF'));
+    $this->callMethod('setColor', array('value' => 'FFFFFF'));
   }
 }
 

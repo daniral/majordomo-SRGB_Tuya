@@ -1,9 +1,8 @@
 <script type="text/javascript">
-    var dimmer%.object_id%brightness=%.brightness%;
-
+    var dimmer%.object_id%brightness=%.brightness%;	
     function sendNewbrightness%.object_id%() {
         //setGlobal("%.object_title%.brightnessLevel",dimmer%.object_id%brightnessLevel);
-		callMethod('%.object_title%.turnOn','brightness='+dimmer%.object_id%brightness);
+		callMethod('%.object_title%.setBrightness','value='+dimmer%.object_id%brightness);
     }
     function dimmerSetbrightness%.object_id%(val) {
 		dimmer%.object_id%brightness=val;
@@ -16,7 +15,7 @@
 <div class="device-widget controller" onClick='callMethod("%.object_title%.switch");'>
     <div class="device-icon %.status|"off;on"%" style='%.icon|"background-image:url(%.icon%)"%'></div>
 <div class="device-header"><span>%.object_description%</span>
-    <input type="text" id="color%.object_id%" class="colorpicker" value="%.colorSaved%" onChange='callMethod("%.object_title%.turnOn","color="+encodeURIComponent(this.value));'/>
+    <input type="text" id="color%.object_id%" class="colorpicker" value="%.color%" onChange='callMethod("%.object_title%.setColor","color="+encodeURIComponent(this.value));'/>
 </div>
 <script>
     $("#color%.object_id%").spectrum({

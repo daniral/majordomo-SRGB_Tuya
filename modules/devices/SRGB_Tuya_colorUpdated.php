@@ -9,7 +9,6 @@
 $color = strtolower($params['NEW_VALUE']);
 $colorOld = strtolower($params['OLD_VALUE']);
 
-
 if (strncmp($color, '#', 1) == 0) {
     $color = preg_replace('/^#/', '', $color);
     $this->setProperty('color', $color);
@@ -26,12 +25,17 @@ $transform = array(
 
 if (isset($transform[$color])) {
     $color = $transform[$color];
+	$this->setProperty('color', $color);
 }
 
 if ($color == $colorOld) return;
 
 if ($this->getProperty('flag')) {
 	$this->setProperty('colorSaved', $color);
+}
+
+if (!$this->getProperty('brightness')) {
+	$this->callMethod('turnOn');
 }
 
 $colorWork = '{"hex":"#' . $color . '"}';
