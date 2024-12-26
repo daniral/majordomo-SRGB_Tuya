@@ -160,7 +160,7 @@ if (!$autoMode) {
 
 if ($autoMode && !$this->getProperty('flag')) {
 
-  if ($this->getProperty('bySunTime') && $this->getProperty('sunriseTime') != '' && $this->getProperty('sunsetTime') != '') {
+  if ($this->getProperty('bySunTime') && $this->getProperty('sunriseTime') != '' && $this->getProperty('sunsetTime') != '' && $this->getProperty('sunriseTime') != $this->getProperty('sunsetTime')) {
     $dayBegin = edit_time($this->getProperty('sunriseTime'), $this->getProperty('addTimeSunrise'), $this->getProperty('signSunrise'));
     $nightBegin = edit_time($this->getProperty('sunsetTime'), $this->getProperty('addTimeSunset'), $this->getProperty('signSunset'));
   } else if (!$this->getProperty('bySensor')) {
