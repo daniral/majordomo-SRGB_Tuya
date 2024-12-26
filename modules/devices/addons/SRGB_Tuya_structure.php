@@ -45,7 +45,6 @@ $this->device_types['rgb'] = array(
 		'brightnessSaved' => array('DESCRIPTION' => 'Сохраненная(предыдущая) яркость.', '_CONFIG_TYPE' => 'num'),
 		'colorWork' => array('DESCRIPTION' => 'Рабочий цвет. Привязать к цвету ледлампы'),
 		'colorSaved' => array('DESCRIPTION' => 'Сохраненный(предыдущий) цвет.', '_CONFIG_TYPE' => 'num'),
-
 	),
 	'METHODS' => array(
 		'AutoOFF' => array('DESCRIPTION' => 'Автовыключение (timerOFF) 0 не включает.'),
@@ -55,7 +54,7 @@ $this->device_types['rgb'] = array(
 		'CommandsMenu' => array('DESCRIPTION' => 'Создает меню управления.(Запускать 1 раз для каждого объекта).', '_CONFIG_SHOW' => 1),
 		'presenceUpdated' => array('DESCRIPTION' => 'Запускается при изменении свойства presence'),
 		'switchTime' => array('DESCRIPTION' => 'Переключение между по солнцу/вручную/по сенсору.'),
-		'turnOn' => array('DESCRIPTION' => 'Включить'color),
+		'turnOn' => array('DESCRIPTION' => 'Включить', '_CONFIG_SHOW' => 1),
 		'turnOff' => array('DESCRIPTION' => 'Выключить', '_CONFIG_SHOW' => 1),
 		'switch' => array('DESCRIPTION' => 'Переключить', '_CONFIG_SHOW' => 1),
 		'brightnessUpdated' => array('DESCRIPTION' => 'Запускается при смене яркости'),
