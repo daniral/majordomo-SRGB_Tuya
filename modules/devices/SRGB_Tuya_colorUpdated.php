@@ -7,13 +7,8 @@
 */
 
 $color = strtolower($params['NEW_VALUE']);
+$color = preg_replace('/^#/', '', $color);
 $colorOld = strtolower($params['OLD_VALUE']);
-
-if (strncmp($color, '#', 1) == 0) {
-    $color = preg_replace('/^#/', '', $color);
-    $this->setProperty('color', $color);
-}
-
 $colorOld = preg_replace('/^#/', '', $colorOld);
 
 $transform = array(
@@ -25,10 +20,13 @@ $transform = array(
 
 if (isset($transform[$color])) {
     $color = $transform[$color];
-	$this->setProperty('color', $color);
 }
 
-if ($color == $colorOld) return;
+if ($color == $colorOld) {
+	return;
+}else{
+	$this->setProperty('color', $color);
+}
 
 if ($this->getProperty('flag')) {
 	$this->setProperty('colorSaved', $color);

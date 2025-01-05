@@ -45,6 +45,7 @@ $this->device_types['rgb'] = array(
 		'brightnessSaved' => array('DESCRIPTION' => 'Сохраненная(предыдущая) яркость.', '_CONFIG_TYPE' => 'num'),
 		'colorWork' => array('DESCRIPTION' => 'Рабочий цвет. Привязать к цвету ледлампы'),
 		'colorSaved' => array('DESCRIPTION' => 'Сохраненный(предыдущий) цвет.', '_CONFIG_TYPE' => 'num'),
+
 	),
 	'METHODS' => array(
 		'AutoOFF' => array('DESCRIPTION' => 'Автовыключение (timerOFF) 0 не включает.'),

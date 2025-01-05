@@ -9,7 +9,5 @@
 */
 if (!isset($params['color']) && !isset($params['value'])) return;
 $this->setProperty('flag', 1);
-$color = strtolower(isset($params['color'])?$params['color']:$params['value']);
-$color = preg_replace('/^#/', '', $color);
+$color = isset($params['color'])?$params['color']:$params['value'];
 $this->setProperty('color', $color);
-

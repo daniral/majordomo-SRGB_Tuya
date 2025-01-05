@@ -1,26 +1,26 @@
 <?php
 /*
-Переводит рабочие еденицы яркости (brightnessWorkMin <--> brightnessWorkMax) в проценты (0 <--> 100)
+Переводит проценты (0 <--> 100) в рабочие еденицы яркости в пределах (brightnessWorkMin <--> brightnessWorkMax)
 Сохраняет предыдущее значение уровня в brightnessSaved
 */
 
 $brightnessLevelNew = $params['NEW_VALUE'];
-$brightnessLevelOld = $params['OLD_VALUE'];
 $brightnessWorkMin = $this->getProperty('brightnessWorkMin');
 $brightnessWorkMax = $this->getProperty('brightnessWorkMax');
 
-
-if ($brightnessLevelNew == $brightnessLevelOld || $brightnessLevelNew < 0 || $brightnessLevelNew > 100) return;
-
-if ($brightnessWorkMin != $brightnessWorkMax) {
-    $brightLevelWork = round($brightnessWorkMin + round(($brightnessWorkMax - $brightnessWorkMin) * $brightnessLevelNew / 100));
-    if($brightLevelWork > 0) {
-		$this->setProperty('status', 1);
-	}else {
-        $this->callMethod('turnOff');
-    }
-    $this->setProperty('brightnessWork', $brightLevelWork);
-    if ($brightnessLevelNew > 0 && $this->getProperty('flag')) {
-        $this->setProperty('brightnessSaved', $brightnessLevelNew);
-    }
+if ($brightnessLevelNew < 0 || $brightnessLevelNew > 100) {
+	return;
+}else{
+	if ($brightnessWorkMin != $brightnessWorkMax) {
+		$brightLevelWork = round($brightnessWorkMin + round(($brightnessWorkMax - $brightnessWorkMin) * $brightnessLevelNew / 100));
+		if($brightLevelWork > 0) {
+			//$this->setProperty('status', 1);
+			$this->setProperty('brightnessWork', $brightLevelWork);
+			if ($brightnessLevelNew > 0 && $this->getProperty('flag')) {
+				$this->setProperty('brightnessSaved', $brightnessLevelNew);
+			}
+		}else {
+		    $this->callMethod('turnOff');
+		}
+	}
 }
