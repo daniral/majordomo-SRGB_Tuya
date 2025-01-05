@@ -192,3 +192,13 @@ if ($autoMode && !$this->getProperty('flag')) {
     $this->callMethod('AutoOFF');
   }
 }
+
+function edit_time($time, $addTime, $sign) {
+  $part = explode(':', $addTime);
+  $addTime_sec = $part[0] * 3600 + $part[1] * 60 + $part[2];
+  if (!$sign) {
+    $addTime_sec = $addTime_sec * -1;
+  }
+  $res = strtotime($time) + $addTime_sec;
+  return date('H:i', $res);
+}
