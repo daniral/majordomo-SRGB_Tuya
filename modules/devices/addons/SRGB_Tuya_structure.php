@@ -38,13 +38,13 @@ $this->device_types['rgb'] = array(
 
 		'brightness' => array('DESCRIPTION' => 'Яркость (0<-->100)', 'ONCHANGE' => 'brightnessUpdated', 'DATA_KEY' => 1),
 		'color' => array('DESCRIPTION' => 'Цвет(HEX)', 'ONCHANGE' => 'colorUpdated', 'DATA_KEY' => 1),
-
 		'brightnessWork' => array('DESCRIPTION' => 'Рабочая яркость. Привязать к яркости ледлампы'),
+		'colorWork' => array('DESCRIPTION' => 'Рабочий цвет. Привязать к цвету ледлампы'),
+
+		'brightnessSaved' => array('DESCRIPTION' => 'Сохраненная(предыдущая) яркость.', '_CONFIG_TYPE' => 'num'),
+		'colorSaved' => array('DESCRIPTION' => 'Сохраненный(предыдущий) цвет.', '_CONFIG_TYPE' => 'num'),
 		'brightnessWorkMax' => array('DESCRIPTION' => 'Максимальная рабочая яркость.', '_CONFIG_TYPE' => 'num'),
 		'brightnessWorkMin' => array('DESCRIPTION' => 'Минимальная рабочая яркость.', '_CONFIG_TYPE' => 'num'),
-		'brightnessSaved' => array('DESCRIPTION' => 'Сохраненная(предыдущая) яркость.', '_CONFIG_TYPE' => 'num'),
-		'colorWork' => array('DESCRIPTION' => 'Рабочий цвет. Привязать к цвету ледлампы'),
-		'colorSaved' => array('DESCRIPTION' => 'Сохраненный(предыдущий) цвет.', '_CONFIG_TYPE' => 'num'),
 
 	),
 	'METHODS' => array(
