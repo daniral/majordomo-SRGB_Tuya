@@ -14,7 +14,6 @@ if ($brightnessLevelNew < 0 || $brightnessLevelNew > 100) {
 	if ($brightnessWorkMin != $brightnessWorkMax) {
 		$brightLevelWork = round($brightnessWorkMin + round(($brightnessWorkMax - $brightnessWorkMin) * $brightnessLevelNew / 100));
 		if($brightLevelWork > 0) {
-			//$this->setProperty('status', 1);
 			$this->setProperty('brightnessWork', $brightLevelWork);
 			if ($brightnessLevelNew > 0 && $this->getProperty('flag')) {
 				$this->setProperty('brightnessSaved', $brightnessLevelNew);

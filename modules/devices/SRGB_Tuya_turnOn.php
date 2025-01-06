@@ -85,8 +85,8 @@
     - callMethod('имя объекта.brightnessDown', array("value"=>1--100)). Без  параметров 10.  
 - **setColor**  
   - Установить цвет.  
-    - callMethod('имя объекта.setColor', array('color'=> 'red','green','blue','white'));  
-    - callMethod('имя объекта.setColor', array('color'=> '#------'));  
+    - callMethod('имя объекта.setColor', array('value'=> 'red','green','blue','white'));  
+    - callMethod('имя объекта.setColor', array('value'=> '#------'));  
 	- Устанавливается flag --> 1.  
 - **turnOff**  
   - Выключить.  
