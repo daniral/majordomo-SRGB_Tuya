@@ -6,10 +6,10 @@
 Если было выключено включет то что в brightnessSaved и cctLevelSeved.
 */
 
-if (!$this->getProperty('brightness') && !$this->getProperty('flag')) {
+if (!$this->getProperty('status') && !$this->getProperty('flag')) {
   $this->callMethod('turnOn');
-} else if ($this->getProperty('brightness') && !$this->getProperty('flag')) {
+} else if ($this->getProperty('status') && !$this->getProperty('flag')) {
   $this->callMethod('turnOn');
-} else if ($this->getProperty('brightness') && $this->getProperty('flag')) {
+} else if ($this->getProperty('status') && $this->getProperty('flag')) {
   $this->callMethod('turnOff');
 }
